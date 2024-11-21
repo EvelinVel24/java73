@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestión de Materias</title>
+</head>
+<body>
+    <h1>Materias</h1>
+    <form action="/materias" method="post" th:object="${materia}">
+        <input type="text" name="nombre" placeholder="Nombre" th:field="*{nombre}" />
+        <input type="text" name="codigo" placeholder="Código" th:field="*{codigo}" />
+        <button type="submit">Guardar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Código</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="materia : ${materias}">
+                <td th:text="${materia.nombre}"></td>
+                <td th:text="${materia.codigo}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
